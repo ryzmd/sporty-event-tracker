@@ -74,6 +74,20 @@ We provide a `Makefile` to automate the entire lifecycle.
     ```
     *This runs a script that starts an event, waits 15s for polling logs, and then stops the event.*
 
+4. **Stop & Cleanup**
+    
+    To stop the application but keep data (Kafka topics):
+
+    ```bash
+    make stop
+    ```
+
+    To stop the application, **delete data volumes**, and remove build artifacts (Factory Reset):
+
+    ```bash
+    make clean
+    ```
+
 ### Option B: Without Make (Windows / Manual)
 
 1.  **Make script executable:**
