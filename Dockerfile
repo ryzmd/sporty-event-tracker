@@ -39,7 +39,7 @@ EXPOSE 8080
 # 6. Healthcheck
 #    Used by Docker Compose to know when the service is actually ready
 HEALTHCHECK --interval=30s --timeout=3s \
-    CMD wget --no-verbose --tries=1 --spider http://localhost:8080/actuator/health || exit 1
+    CMD wget --no-verbose --tries=1 --spider http://localhost:8080/ || exit 1
 
 # 7. Start the application
 ENTRYPOINT ["java", "-jar", "app.jar"]

@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "b3e3e3e3-1234-5678-90ab-cdef12345678",
+		"name": "Sporty Event Tracker",
+		"description": "Collection for testing the Live Sports Event Tracker Service (Staff Level Assignment).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Start Tracking (Live)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"eventId\": \"match-001\",\n    \"status\": \"LIVE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/events/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"events",
+						"status"
+					]
+				},
+				"description": "Triggers the scheduler to start polling for this event ID."
+			},
+			"response": []
+		},
+		{
+			"name": "2. Stop Tracking (Not Live)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"eventId\": \"match-001\",\n    \"status\": \"NOT_LIVE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/events/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"events",
+						"status"
+					]
+				},
+				"description": "Stops the background polling job for this event ID."
+			},
+			"response": []
+		},
+		{
+			"name": "3. Debug: Check Mock Score",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/mock-api/score/match-001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mock-api",
+						"score",
+						"match-001"
+					]
+				},
+				"description": "Directly hits the internal Mock Provider to see what score would be returned."
+			},
+			"response": []
+		},
+		{
+			"name": "4. Health Check (Root)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						""
+					]
+				},
+				"description": "Checks if the app is running by hitting the root endpoint."
+			},
+			"response": []
+		}
+	]
+}

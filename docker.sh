@@ -31,7 +31,7 @@ max_attempts=120
 
 while [ $attempt -le $max_attempts ]; do
     # Check if the app is responding on port 8080
-    if curl -s http://localhost:8080/actuator/health > /dev/null 2>&1 || curl -s http://localhost:8080 > /dev/null 2>&1; then
+    if curl -s http://localhost:8080/ > /dev/null 2>&1; then
         echo -e "${GREEN}✅ Service is UP and READY!${NC}"
         echo ""
         echo "📊 Dashboard:"

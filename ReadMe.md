@@ -48,6 +48,7 @@ The system supports two scheduling modes via `app.scheduling.mode`. We default t
 * **Docker & Docker Compose** (The only strict requirement)
 * **Make** (Recommended for automation)
 * **curl** & **jq** (Optional, for manual testing)
+* **Postman** (Optional: Import `Sporty_Event_Tracker.postman_collection.json` for GUI testing)
 
 ---
 
@@ -102,6 +103,18 @@ We provide a `Makefile` to automate the entire lifecycle.
 
 3.  **Manual Testing:**
     Use the `curl` commands in the **API Usage** section below.
+
+4.  **Stop & Cleanup:**
+    
+    To stop the services:
+    ```bash
+    docker-compose down
+    ```
+    
+    To **factory reset** (delete Kafka data volumes):
+    ```bash
+    docker-compose down -v
+    ```
 
 ---
 
