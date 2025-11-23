@@ -11,11 +11,15 @@ A high-concurrency backend microservice designed to track live sports events. It
 
 ## 📖 Overview
 
-This application demonstrates a production-grade approach to monitoring concurrent live events. It features:
-1.  **Zero-Dependency Runtime:** The entire stack (App + Kafka) runs in Docker. You do not need Java installed to run this project.
-2.  **Advanced Scheduling:** Uses a `ScheduledFuture` per event for O(1) latency control.
-3.  **Resource Efficiency:** Configured with strict memory limits (`-Xmx256m`) to run reliably on constrained cloud VMs.
-4.  **Self-Contained Mocking:** Includes an internal Mock API for generating random scores, making the project fully executable offline.
+**Functionally**, this microservice acts as a real-time bridge between sports data providers and downstream consumers. It manages the lifecycle of live sports events through a REST API:
+* **Trigger:** Clients mark specific matches as `LIVE` or `NOT_LIVE`.
+* **Action:** For every live event, the service triggers a dedicated background job that polls an external API for score updates every 10 seconds.
+* **Output:** It transforms the raw data and publishes standardized score update messages to a **Kafka** topic.
+
+**Technically**, the system is architected to handle high concurrency with operational precision:
+* **O(1) Latency Control:** Instead of a simple batch loop, it uses a **Dynamic Scheduling Strategy** (`ConcurrentHashMap` + `ScheduledFuture`). This allows specific events to be started or stopped instantly without iterating through a global list.
+* **Zero-Dependency Runtime:** The entire stack (Java App + Kafka) runs in Docker, requiring no local Java installation.
+* **Resilience & Efficiency:** Configured with strict memory limits (`-Xmx256m`) and HTTP timeouts to ensure stability on constrained cloud infrastructure.
 
 ---
 
