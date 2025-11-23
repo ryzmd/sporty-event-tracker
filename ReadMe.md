@@ -141,10 +141,10 @@ Configuration is managed via `src/main/resources/application.yml` and `docker-co
 ## 📂 Project Structure
 
 ```text
-home-assignment/
+sporty-event-tracker/
 ├── src/
 │   ├── main/
-│   │   ├── java/com/example/home_assignment/
+│   │   ├── java/com/sporty/eventtracker/
 │   │   │   ├── config/
 │   │   │   │   ├── MdcInterceptor.java      # Distributed tracing context
 │   │   │   │   ├── RestConfig.java          # RestTemplate with timeouts
@@ -171,13 +171,13 @@ home-assignment/
 │   │   │   │   ├── ScorePollingService.java       # Core Business Logic
 │   │   │   │   └── ScoreUpdateProducer.java       # Kafka Producer
 │   │   │   │
-│   │   │   └── HomeAssignmentApplication.java
+│   │   │   └── SportyEventTrackerApplication.java
 │   │   │
 │   │   └── resources/
 │   │       └── application.yml              # App configuration
 │   │
 │   └── test/                                # Unit & Integration Tests
-│       └── java/com/example/home_assignment/
+│       └── java/com/sporty/eventtracker/
 │           ├── controllers/EventControllerTest.java
 │           ├── services/ScorePollingServiceTest.java
 │           └── services/schedulers/
@@ -191,6 +191,16 @@ home-assignment/
 ├── build.gradle                             # Gradle build configuration
 └── settings.gradle                          # Gradle settings
 ```
+
+-----
+
+## 🤖 AI Usage Disclosure
+
+In compliance with the assignment requirements, AI tools (ChatGPT/Cursor) were leveraged for:
+
+1.  **Boilerplate Generation:** Generating initial Unit Test skeletons and Docker configurations.
+2.  **Debugging:** Troubleshooting specific Spring Boot 3 reflection issues with `@PathVariable`.
+3.  **Documentation:** Assisting in drafting the `Makefile` and `README.md` structure.
 
 -----
 

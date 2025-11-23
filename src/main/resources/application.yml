@@ -1,6 +1,6 @@
 spring:
   application:
-    name: home-assignment
+    name: sporty-event-tracker
   kafka:
     bootstrap-servers: localhost:9095
     producer:
@@ -24,4 +24,4 @@ logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} [TraceId:%X{correlationId}] [EventId:%X{eventId}] - %msg%n"
   level:
-    com.example.home_assignment: DEBUG
+    com.sporty.eventtracker: DEBUG

@@ -3,7 +3,7 @@ services:
   # 1. Your Application
   app:
     build: .
-    container_name: home-assignment-app
+    container_name: sporty-event-tracker-app
     ports:
       - "8080:8080"
     environment:
